@@ -1,0 +1,42 @@
+#userForm{
+    width: 33%;
+   
+    border: 1px solid black;
+}
+
+.inputUser{
+    display: block;
+    margin: 0 auto;
+    width: 97%;
+    height: 3.5vh;
+}
+
+.inputUser:focus{
+    border-color: #777;
+}
+
+.errors{
+    display: block;
+    margin: 7px auto 0 auto;
+    height: 20px;
+    width: 80%;
+    color: red;
+    /* border: 1px solid green; */
+}
+
+.wrapperBlockInput{
+    display: block;
+    margin: 8px auto 0 auto;
+    width: 80%;
+}
+
+#buttonSubmit{
+    display: block;
+    margin: 0 auto;
+}
+
+input:valid{
+    border: 2px solid green;
+}
+
+

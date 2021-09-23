@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опросник</title>
+    <link rel="stylesheet" href="./sendForm.css">
+</head>
+
+<body>
+    <h1>Форма регистрации Яндекс</h1>
+    <form action="https://httpbin.org/post" id="userForm" novalidate>
+        <p class="wrapperBlockInput">
+            <label for="name">Имя</label><br />
+            <input type="text" name="Имя" id="nameUser" class="inputUser" placeholder="Введите свое имя:"
+                pattern=".{3,}" required />
+            <div id="nameErrors" class="errors"></div>
+        </p>
+        <p class="wrapperBlockInput">
+            <label for="surname">Фамилия</label><br />
+            <input type="text" name="Фамилия" id="surname" class="inputUser" placeholder="Введите свою фамилию"
+                maxlength="13" required />
+            <div id="surnameErrors" class="errors"></div>
+        </p>
+        <p class="wrapperBlockInput">
+            <label for="number-phone">Номер телефона</label><br />
+            <input type="number" name="номер телефона" id="numberPhone" class="inputUser"
+                placeholder="(XX)XXX XX XX" min="999999999" max="9999999999999" required />
+            <div id="phoneErrors" class="errors"></div>
+        </p>
+        <p class="wrapperBlockInput">
+            <label for="email">e-mail</label><br />
+            <input type="email" name="email" id="email" class="inputUser" pattern="^\S+@\S+$" placeholder="Введите свой email" required />
+            <div id="emailErrors" class="errors"></div>
+        </p>
+        <div id="errors"></div>
+        <p>
+            <button id="buttonSubmit" type="submit">Сохранить</button>
+        </p>
+    </form>
+    <script src="./sendForm.js"></script>
+</body>
+
+</html>
