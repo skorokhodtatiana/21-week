@@ -96,15 +96,22 @@ email.addEventListener('click', cleanErrorsEmail);
 
 buttonSubmit.addEventListener('click', function (event) {
     event.preventDefault();
-
-    fetch('https://httpbin.org/post', {
-            method: "POST",
-            body: new FormData(userForm)
-        })
-        .then(response => response.json())
-        .then(user => {
-            console.log(user);
-        })
-        .catch(error => console.log(error));
+    let user = {
+        name: nameUser.value,
+        surname: surname.value,
+        numberPhone: numberPhone.value,
+        email: email.value,
+    }
+fetch('https://httpbin.org/post', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+    },
+    body: JSON.stringify(user), 
 })
-
+.then(response => response.json())
+.then(responseUser => {
+    console.log(responseUser);
+})
+.catch(error => console.log(error));    
+})
