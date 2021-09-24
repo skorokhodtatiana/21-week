@@ -3,8 +3,8 @@ function getGifs() {
     fetch("https://api.giphy.com/v1/gifs/search?api_key=7wJgSFYwhi8JAM6vE1UxJ7gaTTomMPmR&q=" + valInputSearch + "&limit=5&offset=0&rating=g&lang=en")
         .then(response => response.json())
         .then(responseImg => {
-            responseImg.data
-            for (i = 0; i < 6; i++) {
+            console.log(responseImg.data.length)
+            for (i = 0; i < responseImg.data.length; i++) {
                 let imgGif = document.createElement('img');
                 document.body.append(imgGif);
                 imgGif.src = responseImg.data[i].images.fixed_height_small.url;
