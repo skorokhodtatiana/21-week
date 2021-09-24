@@ -1,0 +1,23 @@
+#userForm{
+    width: 33%;
+    /* height: 84vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.inputUser{
+    width: 20vw;
+    height: 3.5vh;
+}
+
+.inputUser:required:valid{
+    border: 2px solid green;
+}
+
+
+/* 
+.input:required:valid{
+    border-color: green;
+} */

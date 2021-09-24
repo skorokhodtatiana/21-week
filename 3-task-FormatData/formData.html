@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опросник</title>
+    <link rel="stylesheet" href="./formData.css">
+</head>
+
+<body>
+    <h1>Форма регистрации Яндекс</h1>
+    <form action="https://httpbin.org/post" id="userForm" >
+        <p>
+        <label for="name">Имя</label><br/>
+        <input type="text" id="name" class="inputUser" name="name" placeholder="Введите свое имя" pattern=".{3,}" title="Минимум три буквы" required/>
+    </p>
+    <p>
+        <label for="surname">Фамилия</label><br/>
+        <input type="text" id="surname" class="inputUser" name="surname" placeholder="Введите свою фамилию" maxlength="13" required/>
+    </p>
+<p>
+        <label for="number-phone">Номер телефона</label><br/>
+        <input type="tel" id="number-phone" class="inputUser" name="number" placeholder="(код)xxx-xx-xx"  maxlength="11" required/>
+    </p>
+    <p>
+        <label for="email">e-mail</label><br/>
+        <input type="email" id="email" class="inputUser" name="email" placeholder="Введите свой email" required/>
+    </p>
+    <p>
+        <label for="password">Пароль</label><br/>
+        <input type="password" id="password" class="inputUser" name="password" placeholder="Придумайте пароль" required autocomplete="on" />
+    </p>
+    <p>
+        <label for="password-2">Пароль</label><br/>
+        <input type="password" id="password-2" class="inputUser" name="password2" placeholder="Повторите пароль еще раз" required autocomplete="on"/>
+    </p>
+    <div class="wrapperInputRadio">
+        <p>Для каких целей</p>
+        <label for="personal">Личный</label>
+        <input checked type="radio" id="personal" class="inputRadio" name="goals" required/>
+        <label for="worker">Рабочий</label>
+        <input type="radio" id="worker" class="inputRadio" name="goals" required/>
+    </div>
+
+        <div id="errorMessage"></div>
+        <p>
+            <button id="buttonSubmit" type="submit">Сохранить</button>
+        </p>
+    </form>
+    <script src="./formData.js"></script>
+</body>
+
+</html>
