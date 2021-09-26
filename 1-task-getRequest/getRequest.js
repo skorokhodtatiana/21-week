@@ -4,7 +4,7 @@ function getGifs() {
         .then(response => response.json())
         .then(responseImg => {
             console.log(responseImg.data.length)
-            for (i = 0; i < responseImg.data.length; i++) {
+            for (let i = 0; i < responseImg.data.length; i++) {
                 let imgGif = document.createElement('img');
                 document.body.append(imgGif);
                 imgGif.src = responseImg.data[i].images.fixed_height_small.url;
