@@ -12,29 +12,29 @@
 <body>
     <h1>Форма регистрации Яндекс</h1>
     <form action="https://httpbin.org/post" id="userForm" novalidate>
-        <p class="wrapperBlockInput">
+        <div class="wrapperBlockInput">
             <label for="name">Имя</label><br />
-            <input type="text" name="Имя" id="nameUser" class="inputUser" placeholder="Введите свое имя:"
+            <input type="text" oninput="setEvenListeners(this, checkEachInput)"  name="Имя" id="nameUser" class="inputUser" placeholder="Введите свое имя:"
                 pattern=".{3,}" required />
             <div id="nameErrors" class="errors"></div>
-        </p>
-        <p class="wrapperBlockInput">
+        </div>
+        <div class="wrapperBlockInput">
             <label for="surname">Фамилия</label><br />
-            <input type="text" name="Фамилия" id="surname" class="inputUser" placeholder="Введите свою фамилию"
+            <input type="text" oninput="setEvenListeners(this, checkEachInput)"  name="Фамилия" id="surname" class="inputUser" placeholder="Введите свою фамилию"
                 maxlength="13" required />
             <div id="surnameErrors" class="errors"></div>
-        </p>
-        <p class="wrapperBlockInput">
+        </div>
+        <div class="wrapperBlockInput">
             <label for="number-phone">Номер телефона</label><br />
-            <input type="number" name="номер телефона" id="numberPhone" class="inputUser"
+            <input type="number" oninput="setEvenListeners(this, checkEachInput)"  name="номер телефона" id="numberPhone" class="inputUser"
                 placeholder="(XX)XXX XX XX" min="999999999" max="9999999999999" required />
             <div id="phoneErrors" class="errors"></div>
-        </p>
-        <p class="wrapperBlockInput">
+        </div>
+        <div class="wrapperBlockInput">
             <label for="email">e-mail</label><br />
-            <input type="email" name="email" id="email" class="inputUser" pattern="^\S+@\S+$" placeholder="Введите свой email" required />
+            <input type="email" oninput="setEvenListeners(this, checkEachInput)"  name="email" id="email" class="inputUser" pattern="^\S+@\S+$" placeholder="Введите свой email" required />
             <div id="emailErrors" class="errors"></div>
-        </p>
+        </div>
         <div id="errors"></div>
         <p>
             <button id="buttonSubmit" type="submit">Сохранить</button>
@@ -44,3 +44,25 @@
 </body>
 
 </html>
+
+<!-- function checkEachInput(data){
+    let valueNameError = checkInputValidity(data);
+    nameErrors.innerText = valueNameError;
+
+    let valueSurnameErrors = checkInputValidity(data);
+    surnameErrors.innerText = valueSurnameErrors;
+
+    let valueNumPhoneErrors = checkInputValidity(data);
+    phoneErrors.innerText = valueNumPhoneErrors;
+
+    let valueEmailErrors = checkInputValidity(data);
+    emailErrors.innerText = valueEmailErrors;
+} -->
+
+<!-- // function cleanErrors(){
+    //     errorArr = [];
+    //     nameErrors.innerText = "";
+    //     surnameErrors.innerText = "";
+    //     phoneErrors.innerText = "";
+    //     emailErrors.innerText = "";
+    // } -->

@@ -9,9 +9,11 @@ const email = document.getElementById('email');
 const emailErrors = document.getElementById('emailErrors');
 const userForm = document.getElementById('userForm');
 const errors = document.getElementById('errors');
+let fieldInput = document.querySelectorAll('input');
 let errorArr = [];
 
 function checkInputValidity(val) {
+    console.log(val);
     errorArr = [];
     let input = val.target;
     let validity = input.validity;
@@ -25,6 +27,7 @@ function checkInputValidity(val) {
 
     if (validity.rangeUnderflow) {
         errorArr.push('Слишком мало символов' + ' ' + 'в' + ' ' + input.name);
+        console.log(errorArr);
     }
 
     if (validity.rangeOverflow) {
@@ -41,10 +44,44 @@ function checkInputValidity(val) {
     return errorArr;
 }
 
-function checkName(data) {
+
+
+// function checkRequired(errorArr) {
+//     errorArr.forEach(function(input){
+//         if(input.value.trim() === ''){
+//             showError(input,`${getFieldName(input)} is required`)
+//         }else {
+//             showSucces(input);
+//         }
+//     });
+// }
+
+
+
+ function checkEachInput(data){
+     console.log("data");
     let valueNameError = checkInputValidity(data);
-    nameErrors.innerText = valueNameError;
-}
+
+    const wrapperBlockInput = data.target.parentElement;
+    //formControl.className = 'wrapperBlockInput';
+    const divError = wrapperBlockInput.querySelector('div');
+    divError.innerText = valueNameError;
+
+    // let valueSurnameErrors = checkInputValidity(data);
+    // surnameErrors.innerText = valueSurnameErrors;
+
+    // let valueNumPhoneErrors = checkInputValidity(data);
+    // phoneErrors.innerText = valueNumPhoneErrors;
+
+    // let valueEmailErrors = checkInputValidity(data);
+    // emailErrors.innerText = valueEmailErrors;
+} 
+
+
+// function checkName(data) {
+//     let valueNameError = checkInputValidity(data);
+//     nameErrors.innerText = valueNameError;
+// }
 
 function cleanErrorsName() {
     errorArr = [];
@@ -52,46 +89,61 @@ function cleanErrorsName() {
 }
 
 
-function checkSurname(data) {
-    let valueSurnameErrors = checkInputValidity(data);
-    surnameErrors.innerText = valueSurnameErrors;
-}
+// function checkSurname(data) {
+//     let valueSurnameErrors = checkInputValidity(data);
+//     surnameErrors.innerText = valueSurnameErrors;
+// }
 
 function cleanErrorsSurname() {
     errorArr = [];
     surnameErrors.innerText = "";
 }
 
-function checkNumberPhone(data) {
-    let valueNumPhoneErrors = checkInputValidity(data);
-    phoneErrors.innerText = valueNumPhoneErrors;
-}
+// function checkNumberPhone(data) {
+//     let valueNumPhoneErrors = checkInputValidity(data);
+//     phoneErrors.innerText = valueNumPhoneErrors;
+// }
 
 function cleanNumPhone() {
     errorArr = [];
     phoneErrors.innerText = "";
 }
 
-function checkEmail(data) {
-    let valueEmailErrors = checkInputValidity(data);
-    emailErrors.innerText = valueEmailErrors;
-}
+// function checkEmail(data) {
+//     let valueEmailErrors = checkInputValidity(data);
+//     emailErrors.innerText = valueEmailErrors;
+// }
 
 function cleanErrorsEmail() {
     errorArr = [];
     emailErrors.innerText = "";
 }
 
-nameUser.addEventListener('blur', checkName);
+
+
+
+function setEvenListeners(elem, checkEachInput) {
+    //console.log(elem);
+    elem.addEventListener('blur', checkEachInput);
+}
+
+
+
+
+
+// fieldInput.addEventListener('blur', checkEachInput());
+
+
+//  nameUser.addEventListener('blur', setEvenListeners());
 nameUser.addEventListener('click', cleanErrorsName);
 
-surname.addEventListener('blur', checkSurname);
+// surname.addEventListener('blur', setEvenListeners());
 surname.addEventListener('click', cleanErrorsSurname);
 
-numberPhone.addEventListener('blur', checkNumberPhone);
+//numberPhone.addEventListener('blur', checkNumberPhone);
 numberPhone.addEventListener('click', cleanNumPhone);
 
-email.addEventListener('blur', checkEmail);
+//email.addEventListener('blur', checkEmail);
 email.addEventListener('click', cleanErrorsEmail);
 
 buttonSubmit.addEventListener('click', function (event) {
