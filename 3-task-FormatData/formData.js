@@ -5,7 +5,9 @@
 
         fetch('https://httpbin.org/post', {
             method: 'POST',
+            
             body: new FormData(userForm)
+            
         })
         .then(response => response.json())
         .then(responseUser => {
