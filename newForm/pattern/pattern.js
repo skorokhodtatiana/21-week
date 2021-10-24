@@ -21,20 +21,20 @@ function showSucces(input) {
 //check email is valid
 function checkEmail(input) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if(re.test(input.value.trim())) {
+    if (re.test(input.value.trim())) {
         showSucces(input)
-    }else {
-        showError(input,'Email is not invalid');
+    } else {
+        showError(input, 'Email is not invalid');
     }
 }
 
 
 //checkRequired fields
 function checkRequired(inputArr) {
-    inputArr.forEach(function(input){
-        if(input.value.trim() === ''){
-            showError(input,`${getFieldName(input)} is required`)
-        }else {
+    inputArr.forEach(function (input) {
+        if (input.value.trim() === '') {
+            showError(input, `${getFieldName(input)} is required`)
+        } else {
             showSucces(input);
         }
     });
@@ -42,12 +42,12 @@ function checkRequired(inputArr) {
 
 
 //check input Length
-function checkLength(input, min ,max) {
-    if(input.value.length < min) {
+function checkLength(input, min, max) {
+    if (input.value.length < min) {
         showError(input, `${getFieldName(input)} must be at least ${min} characters`);
-    }else if(input.value.length > max) {
+    } else if (input.value.length > max) {
         showError(input, `${getFieldName(input)} must be les than ${max} characters`);
-    }else {
+    } else {
         showSucces(input);
     }
 }
@@ -59,22 +59,22 @@ function getFieldName(input) {
 
 // check passwords match
 function checkPasswordMatch(input1, input2) {
-    if(input1.value !== input2.value) {
+    if (input1.value !== input2.value) {
         showError(input2, 'Passwords do not match');
     }
 }
 
 username.addEventListener('blur', (e) => {
-  checkRequired([username]);
+    checkRequired([username]);
 })
 
 //Event Listeners
-form.addEventListener('submit',function(e) {
+form.addEventListener('submit', function (e) {
     e.preventDefault();
 
     checkRequired([username, email, password, password2]);
-    checkLength(username,3,15);
-    checkLength(password,6,25);
+    checkLength(username, 3, 15);
+    checkLength(password, 6, 25);
     checkEmail(email);
     checkPasswordMatch(password, password2);
 });
